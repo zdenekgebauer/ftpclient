@@ -1,0 +1,6 @@
+parameters:
+    paths:
+        - ../src/
+    level: max
+    ignoreErrors:
+        - '#^Parameter (.+) of function ftp_(.+) expects resource, resource\|false given#'

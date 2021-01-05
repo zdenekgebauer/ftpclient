@@ -1,0 +1,9 @@
+params:
+    FTP_HOST: 'localhost'
+    FTP_SSL: false
+    FTP_LOGIN: 'login'
+    FTP_PASSWORD: 'password'
+    FTP_PORT: 21
+    FTP_PASV: true
+    FTP_TEST_SSL: true
+

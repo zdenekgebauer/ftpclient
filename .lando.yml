@@ -1,0 +1,29 @@
+name: ftpclient_php74
+services:
+  appserver:
+    type: php:7.4
+    via: cli
+    xdebug: coverage
+    composer_version: 2-latest
+    build_as_root:
+      - docker-php-ext-install sockets
+tooling:
+  php:
+    service: appserver
+  composer:
+    service: appserver
+  phpcs:
+    service: appserver
+    description: check cocing standards (PHP CodeSniffer)
+    cmd: php build/phpcs.phar --standard=PSR12 --report-file=build/reports/checkstyle.txt src
+  phpstan:
+    service: appserver
+    description: static analysis (PHPStan)
+    cmd: php build/phpstan.phar analyze -c build/phpstan.neon > build/reports/phpstan.txt
+  phpmetrics:
+    service: appserver
+    description: static analysis (PHPMetrics)
+    cmd: php build/phpmetrics.phar --exclude=tests,vendor --report-html=build/reports/phpmetrics --git=git ./
+events:
+  pre-start:
+    - appserver: composer install

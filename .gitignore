@@ -1,0 +1,14 @@
+# generally ignored files
+.idea/
+*.bak
+*.log
+# local build settings
+/build/local.properties
+/build/reports/
+/tests/*.suite.yml
+/tests/_envs/*.yml
+!/tests/_envs/sample.yml
+/tests/_output/*
+/tests/_support/_generated/*
+/vendor/
+/composer.lock

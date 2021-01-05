@@ -1,0 +1,30 @@
+{
+  "name": "zdenekgebauer/ftp-client",
+  "license": "WTFPL",
+  "description": "FTP client",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Zdenek Gebauer",
+      "email": "zdenek.gebauer@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "config": {
+    "platform": {
+      "php": "7.4"
+    },
+    "preferred-install": {
+      "*": "dist"
+    }
+  },
+  "require": {
+    "php": "7.4",
+    "ext-ftp": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "ZdenekGebauer\\FtpClient\\": "src/"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="zdenekgebauer_ftpclient" default="build">
+
+	<property name="dir.src" value="${project.basedir}/src"/>
+	<property name="dir.report" value="${project.basedir}/build/reports"/>
+
+	<property name="exec.php" value="php"/>
+
+	<property file="${project.basedir}/build/local.properties" override="true"/>
+
+	<target name="build" depends="test_unit"/>
+
+	<!-- tests requires appropriate environment files tests/_envs/*.yml with ftp connection settings -->
+	<target name="test_unit" description="unit tests">
+		<exec command="${exec.php} ${project.basedir}/build/codecept.phar run unit --html report-unit.html --no-redirect --env linux --env windows" dir="${project.basedir}" logoutput="true" checkreturn="true"/>
+	</target>
+	<target name="test_coverage" description="unit and integration tests with code coverage reports">
+		<exec command="${exec.php} ${project.basedir}/build/codecept.phar run unit --html report-coverage.html --coverage-html --no-redirect --env linux --env windows" dir="${project.basedir}" logoutput="true" checkreturn="true"/>
+	</target>
+
+	<target name="test_custom">
+		<exec command="${exec.php} ${project.basedir}/build/codecept.phar run unit FtpClientMethodsTest:testGetDirectoryFail --html report-custom.html --debug --env windows" dir="${project.basedir}" logoutput="true" checkreturn="true"/>
+	</target>
+
+</project>
