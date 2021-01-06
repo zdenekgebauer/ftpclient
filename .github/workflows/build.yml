@@ -1,0 +1,23 @@
+name: build
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Validate composer.json and composer.lock
+        run: composer validate
+
+      - name: Install dependencies
+        run: composer update --prefer-dist --no-progress
+
+      - name: Check coding standards
+        run: php build/phpcs.phar --standard=PSR12 src
+
+      - name: Static analysis
+        run: php build/phpstan.phar analyse -c build/phpstan.neon src
