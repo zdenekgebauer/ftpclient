@@ -309,7 +309,7 @@ class FtpClient
      * @return string|false
      * @throws FtpException
      */
-    public function getFileContent(string $remote_file, int $mode = FTP_BINARY, int $offset = 0): string|false
+    public function getFileContent(string $remote_file, int $mode = FTP_BINARY, int $offset = 0): string | false
     {
         $this->assertConnection();
 
