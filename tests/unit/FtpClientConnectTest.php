@@ -7,6 +7,7 @@ use ZdenekGebauer\FtpClient\FtpOptions;
 
 class FtpClientConnectTest extends \Codeception\Test\Unit
 {
+
     protected UnitTester $tester;
 
     public function testConnect(): void
@@ -15,9 +16,9 @@ class FtpClientConnectTest extends \Codeception\Test\Unit
 
         $ftp = new ZdenekGebauer\FtpClient\FtpClient();
         $ftpOptions = new FtpOptions();
-        $ftpOptions->host = $testParams['FTP_HOST'] ;
-        $ftpOptions->username = $testParams['FTP_LOGIN'] ;
-        $ftpOptions->password = $testParams['FTP_PASSWORD'] ;
+        $ftpOptions->host = $testParams['FTP_HOST'];
+        $ftpOptions->username = $testParams['FTP_LOGIN'];
+        $ftpOptions->password = $testParams['FTP_PASSWORD'];
         $ftpOptions->port = $testParams['FTP_PORT'];
 
         $ftp->connect($ftpOptions);
@@ -35,9 +36,9 @@ class FtpClientConnectTest extends \Codeception\Test\Unit
 
         $ftp = new ZdenekGebauer\FtpClient\FtpClient();
         $ftpOptions = new FtpOptions();
-        $ftpOptions->host = $testParams['FTP_HOST'] ;
-        $ftpOptions->username = $testParams['FTP_LOGIN'] ;
-        $ftpOptions->password = $testParams['FTP_PASSWORD'] ;
+        $ftpOptions->host = $testParams['FTP_HOST'];
+        $ftpOptions->username = $testParams['FTP_LOGIN'];
+        $ftpOptions->password = $testParams['FTP_PASSWORD'];
         $ftpOptions->port = $testParams['FTP_PORT'];
         $ftpOptions->ssl = true;
 
@@ -54,9 +55,9 @@ class FtpClientConnectTest extends \Codeception\Test\Unit
 
         $ftp = new ZdenekGebauer\FtpClient\FtpClient();
         $ftpOptions = new FtpOptions();
-        $ftpOptions->host = $testParams['FTP_HOST'] ;
-        $ftpOptions->username = $testParams['FTP_LOGIN'] ;
-        $ftpOptions->password = $testParams['FTP_PASSWORD'] ;
+        $ftpOptions->host = $testParams['FTP_HOST'];
+        $ftpOptions->username = $testParams['FTP_LOGIN'];
+        $ftpOptions->password = $testParams['FTP_PASSWORD'];
         $ftpOptions->port = $testParams['FTP_PORT'];
 
         $ftp->connect($ftpOptions);
@@ -77,7 +78,7 @@ class FtpClientConnectTest extends \Codeception\Test\Unit
         );
 
         $testParams = $this->tester->getCustomParams();
-        $ftpOptions->host = $testParams['FTP_HOST'] ;
+        $ftpOptions->host = $testParams['FTP_HOST'];
         $ftpOptions->username = 'invalid';
 
         $this->tester->expectThrowable(

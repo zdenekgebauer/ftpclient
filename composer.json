@@ -1,8 +1,9 @@
 {
   "name": "zdenekgebauer/ftp-client",
   "license": "WTFPL",
-  "description": "FTP client",
+  "description": "Object oriented FTP client for PHP",
   "type": "library",
+  "keywords": ["ftp", "sftp", "php"],
   "authors": [
     {
       "name": "Zdenek Gebauer",
@@ -12,14 +13,14 @@
   "minimum-stability": "stable",
   "config": {
     "platform": {
-      "php": "7.4"
+      "php": "8.0"
     },
     "preferred-install": {
       "*": "dist"
     }
   },
   "require": {
-    "php": "7.4",
+    "php": ">=8.0",
     "ext-ftp": "*"
   },
   "autoload": {

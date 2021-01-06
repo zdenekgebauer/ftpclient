@@ -1,7 +1,7 @@
-name: ftpclient_php74
+name: ftpclient_php8
 services:
   appserver:
-    type: php:7.4
+    type: php:8.0
     via: cli
     xdebug: coverage
     composer_version: 2-latest

@@ -177,7 +177,7 @@ class FtpClient
         if ($this->connection) {
             @ftp_close($this->connection);
         }
-        $this->connection = false;
+        @$this->connection = false; // suppress notice about SSL shutdown
     }
 
     /**
@@ -309,7 +309,7 @@ class FtpClient
      * @return string|false
      * @throws FtpException
      */
-    public function getFileContent(string $remote_file, int $mode = FTP_BINARY, int $offset = 0)
+    public function getFileContent(string $remote_file, int $mode = FTP_BINARY, int $offset = 0): string|false
     {
         $this->assertConnection();
 
